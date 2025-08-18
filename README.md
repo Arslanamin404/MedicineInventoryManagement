@@ -6,18 +6,18 @@ database (PostgreSQL/MySQL).
 
 ## 🚀 Features
 
--   Add, update, delete medicines/products\
--   Track stock quantity and expiry date\
--   View product details (generic name, manufacturer, pack size,
-    category, etc.)\
--   Simple and clean UI with Next.js + Tailwind\
--   API built with Express & Prisma ORM
+- Add, update, delete medicines/products\
+- Track stock quantity and expiry date\
+- View product details (generic name, manufacturer, pack size,
+  category, etc.)\
+- Simple and clean UI with Next.js + Tailwind\
+- API built with Express & Prisma ORM
 
 ## 🛠️ Tech Stack
 
--   **Frontend:** Next.js, React, TailwindCSS\
--   **Backend:** Express.js, Prisma ORM\
--   **Database:** PostgreSQL (or MySQL)
+- **Frontend:** Next.js, React, TailwindCSS\
+- **Backend:** Express.js, Prisma ORM\
+- **Database:** PostgreSQL (or MySQL)
 
 ## 📂 Project Structure
 
@@ -31,24 +31,24 @@ database (PostgreSQL/MySQL).
 
 ### 1. Clone the repository
 
-``` bash
+```bash
 git clone https://github.com/your-username/medicine-inventory.git
 cd medicine-inventory
 ```
 
 ### 2. Install dependencies
 
-``` bash
+```bash
 cd backend && npm install
 cd ../frontend && npm install
 ```
 
 ### 3. Setup Database
 
--   Configure `.env` in `backend/` with your database URL\
--   Run Prisma migrations:
+- Configure `.env` in `backend/` with your database URL\
+- Run Prisma migrations:
 
-``` bash
+```bash
 npx prisma migrate dev
 ```
 
@@ -56,31 +56,17 @@ npx prisma migrate dev
 
 Start backend:
 
-``` bash
+```bash
 cd backend
 npm run dev
 ```
 
 Start frontend:
 
-``` bash
+```bash
 cd frontend
 npm run dev
 ```
 
 Frontend will be available at **http://localhost:3000**\
-Backend API will run at **http://localhost:5000**
-
-------------------------------------------------------------------------
-
-## 📌 Todo
-
--   Authentication (Admin/User roles)\
--   Low stock & expiry notifications\
--   Reporting & analytics
-
-------------------------------------------------------------------------
-
-## 📄 License
-
-MIT License
+Backend API will run at **http://localhost:{PORRT}**
