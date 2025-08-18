@@ -129,11 +129,7 @@ export default function ProductSearchPage() {
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {results.map((product) => (
-                    <tr key={product.product_code} className="odd:bg-gray-50">
-                      <td className="px-4 py-2">{product.product_code}</td>
-                      <td className="px-4 py-2 font-semibold text-gray-900">
-                        {product.product_name || "N/A"}
-                      </td>
+                    <tr key={product.id} className="odd:bg-gray-50">
                       <td className="px-4 py-2">{product.generic_name}</td>
                       <td className="px-4 py-2">{product.category}</td>
                       <td className="px-4 py-2">{product.quantity}</td>
@@ -157,9 +153,7 @@ export default function ProductSearchPage() {
                       <td className="px-4 py-2">
                         <Button
                           className="cursor-pointer bg-emerald-600 hover:bg-emerald-700 text-white shadow-md flex items-center gap-x-1"
-                          onClick={() =>
-                            router.push(`/products/${product.product_code}`)
-                          }
+                          onClick={() => router.push(`/products/${product.id}`)}
                         >
                           <Eye className="h-4 w-4" /> View
                         </Button>

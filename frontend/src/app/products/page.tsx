@@ -59,12 +59,12 @@ export default function ViewMedicinesPage() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Code</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Expiry</TableHead>
             <TableHead>Stock</TableHead>
             <TableHead>Final Rate</TableHead>
+            <TableHead>Created At</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
@@ -72,10 +72,9 @@ export default function ViewMedicinesPage() {
           {products.map((p) => (
             <TableRow
               className="cursor-pointer"
-              onClick={() => router.push(`/products/${p.product_code}`)}
-              key={p.product_code}
+              onClick={() => router.push(`/products/${p.id}`)}
+              key={p.id}
             >
-              <TableCell>{p.product_code}</TableCell>
               <TableCell>{p.product_name || p.generic_name}</TableCell>
               <TableCell>{p.category}</TableCell>
               <TableCell>
@@ -83,6 +82,9 @@ export default function ViewMedicinesPage() {
               </TableCell>
               <TableCell>{p.quantity}</TableCell>
               <TableCell>₹ {p.final_rate}</TableCell>
+              <TableCell>
+                {p.created_at?.toLocaleString().split("T")[0]}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

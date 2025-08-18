@@ -16,7 +16,7 @@ export default function ProductDetailPage() {
 
   const fetchProduct = async () => {
     try {
-      const response = await api.get(`/product/code/${code}`);
+      const response = await api.get(`/product/${code}`);
       setProduct(response.data.data);
     } catch (error: any) {
       console.error("Failed to fetch products:", error);

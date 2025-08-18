@@ -22,7 +22,7 @@ export default function HomePage() {
       console.log(error);
       toast.error("Error fetching product count", {
         description:
-          error.response.data?.error?.message ||
+          error.response?.data?.error?.message ||
           "An unexpected error occurred.",
         duration: 5000,
       });
@@ -38,7 +38,7 @@ export default function HomePage() {
       console.log(error);
       toast.error("Error fetching stock value", {
         description:
-          error.response.data?.error?.message ||
+          error.response?.data?.error?.message ||
           "An unexpected error occurred.",
         duration: 5000,
       });
@@ -54,7 +54,7 @@ export default function HomePage() {
       console.log(error);
       toast.error("Error fetching out of stock count", {
         description:
-          error.response.data?.error?.message ||
+          error.response?.data?.error?.message ||
           "An unexpected error occurred.",
         duration: 5000,
       });

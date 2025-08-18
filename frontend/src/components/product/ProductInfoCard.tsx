@@ -13,9 +13,9 @@ export default function ProductInfoCard({ product }: { product: IProduct }) {
           </CardTitle>
           <div>
             <p className="text-sm text-gray-500 mt-1">
-              Code:
+              Created At:
               <span className="ml-1 font-semibold text-gray-800">
-                {product.product_code}
+                {product.created_at?.toLocaleString().split("T")[0]}
               </span>
             </p>
           </div>

@@ -37,7 +37,6 @@ export default function ProductForm({
 }) {
   const form = useForm<IProduct>({
     defaultValues: defaultValues ?? {
-      product_code: 0,
       product_name: "",
       generic_name: "",
       manufacturer: "",
@@ -90,7 +89,6 @@ export default function ProductForm({
       rate: Number(values.rate),
       gross_amount: Number(values.gross_amount),
       quantity: Number(values.quantity),
-      product_code: Number(values.product_code),
       tax: Number(values.tax),
       final_rate: Number(values.final_rate),
       final_amount: Number(values.final_amount),
@@ -139,20 +137,6 @@ export default function ProductForm({
         {/* Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
-            name="product_code"
-            control={form.control}
-            rules={{ required: "Product code is required" }}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Medicine Code</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="e.g., 1001" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
             name="product_name"
             control={form.control}
             rules={{ required: "Product name is required" }}
@@ -166,10 +150,6 @@ export default function ProductForm({
               </FormItem>
             )}
           />
-        </div>
-
-        {/* Row 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             name="generic_name"
             control={form.control}
@@ -184,6 +164,10 @@ export default function ProductForm({
               </FormItem>
             )}
           />
+        </div>
+
+        {/* Row 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4">
           <FormField
             name="manufacturer"
             control={form.control}
@@ -197,10 +181,6 @@ export default function ProductForm({
               </FormItem>
             )}
           />
-        </div>
-
-        {/* Row 3 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             name="pack_size"
             control={form.control}

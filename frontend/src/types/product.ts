@@ -1,6 +1,5 @@
 interface IProduct {
     id?: number,
-    product_code: number,
     product_name?: string,
     generic_name: string,
     manufacturer?: string,
@@ -15,6 +14,7 @@ interface IProduct {
     gross_amount: number,
     final_amount: number,
     final_rate: number,
+    created_at?: string | Date
 }
 
 

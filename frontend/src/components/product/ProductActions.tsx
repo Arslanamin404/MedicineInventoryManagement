@@ -87,7 +87,7 @@ export default function ProductActions({ product }: { product: IProduct }) {
             <AlertDialogDescription className="mt-1.5">
               Are you sure you want to delete{" "}
               <span className="font-semibold">
-                {product.product_name || product.product_code}
+                {product.product_name || product.generic_name}
               </span>
               ? This action cannot be undone.
             </AlertDialogDescription>
