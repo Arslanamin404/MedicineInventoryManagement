@@ -145,7 +145,7 @@ export default function ProductSearchPage() {
                               : "bg-green-200 text-green-800"
                           }`}
                         >
-                          {product.expiry_date}
+                          {product.expiry_date.toLocaleString().split("T")[0]}
                         </span>
                       </td>
                       <td className="px-4 py-2">
