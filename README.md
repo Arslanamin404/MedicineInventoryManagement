@@ -68,5 +68,5 @@ cd frontend
 npm run dev
 ```
 
-Frontend will be available at **http://localhost:3000**\
-Backend API will run at **http://localhost:{PORRT}**
+Frontend will be available at `http://localhost:3000`
+Backend API will run at `http://localhost:{PORRT}`
