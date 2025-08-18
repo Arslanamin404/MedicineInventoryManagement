@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -16,7 +15,6 @@ datasource db {
 
 model product {
   id           Int      @id @default(autoincrement())
-  product_code Int      @unique
   product_name String
   generic_name String
   manufacturer String?
@@ -35,7 +33,6 @@ model product {
   updated_at   DateTime @updatedAt
 
   // index added for faster search
-  @@index([product_code])
   @@index([product_name])
   @@index([generic_name])
 }

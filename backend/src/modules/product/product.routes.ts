@@ -13,10 +13,6 @@ productRouter.get("/", (req: Request, res: Response, next: NextFunction) => {
     ProductController.getAllProducts(req, res, next);
 });
 
-// Get by product code
-productRouter.get("/code/:pcode", (req: Request, res: Response, next: NextFunction) => {
-    ProductController.getProductByCode(req, res, next);
-});
 
 // Get by product name
 productRouter.get("/name/:product_name", (req: Request, res: Response, next: NextFunction) => {

@@ -32,14 +32,6 @@ export class ProductController {
         }
     }
 
-    static async getProductByCode(req: Request, res: Response, next: NextFunction) {
-        try {
-            const product = await ProductServices.getProductByCode(Number(req.params.pcode));
-            return ApiResponse(res, 200, true, "Product fetched successfully", product)
-        } catch (error) {
-            next(error)
-        }
-    }
 
     static async getProductByProductName(req: Request, res: Response, next: NextFunction) {
         try {

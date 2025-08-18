@@ -1,11 +1,6 @@
 import { z } from "zod";
 
 export const createProductSchema = z.object({
-    product_code: z
-        .number()
-        .int()
-        .positive({ message: "Product code must be a positive integer" }),
-
     product_name: z.string().trim().min(1, { message: "Product name is required" }),
     generic_name: z
         .string()
@@ -53,11 +48,6 @@ export const createProductSchema = z.object({
 });
 
 export const updateProductSchema = z.object({
-    product_code: z
-        .number()
-        .int()
-        .optional(),
-
     product_name: z.string().trim().optional(),
 
     generic_name: z

@@ -3,12 +3,7 @@ import { CreateProductInput, updateProductSchema } from './product.validator';
 
 export class ProductServices {
     static async createProduct({ item }: { item: CreateProductInput }) {
-        const { product_code, product_name, generic_name, manufacturer, pack_size, category, expiry_date, quantity, mrp, rate, discount, tax } = item;
-
-        const existing = await prisma.product.findUnique({ where: { product_code } });
-        if (existing)
-            throw new Error(`Product with this p-code - '${item.product_code}' already exists`);
-
+        const { product_name, generic_name, manufacturer, pack_size, category, expiry_date, quantity, mrp, rate, discount, tax } = item;
 
         const gross_amount = rate * quantity;
         const discountAmount = (gross_amount * discount) / 100;
@@ -20,7 +15,6 @@ export class ProductServices {
 
         return await prisma.product.create({
             data: {
-                product_code,
                 product_name, generic_name, manufacturer, pack_size, category, expiry_date, quantity, mrp, rate, discount, tax, gross_amount,
                 final_amount, final_rate
             }
@@ -31,15 +25,6 @@ export class ProductServices {
         return await prisma.product.findMany()
     }
 
-
-    static async getProductByCode(code: number) {
-        const product = await prisma.product.findUnique({
-            where: { product_code: code }
-        })
-        if (!product)
-            throw new Error(`NOT FOUND! Product with p-code ${code} does not exist`);
-        return product
-    }
 
     static async getProductByProductName(product_name: string) {
         const product = await prisma.product.findMany({

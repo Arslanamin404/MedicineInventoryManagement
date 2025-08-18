@@ -1,7 +1,6 @@
 -- CreateTable
 CREATE TABLE "public"."product" (
     "id" SERIAL NOT NULL,
-    "product_code" INTEGER NOT NULL,
     "product_name" TEXT NOT NULL,
     "generic_name" TEXT NOT NULL,
     "manufacturer" TEXT,
@@ -21,12 +20,6 @@ CREATE TABLE "public"."product" (
 
     CONSTRAINT "product_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "product_product_code_key" ON "public"."product"("product_code");
-
--- CreateIndex
-CREATE INDEX "product_product_code_idx" ON "public"."product"("product_code");
 
 -- CreateIndex
 CREATE INDEX "product_product_name_idx" ON "public"."product"("product_name");
