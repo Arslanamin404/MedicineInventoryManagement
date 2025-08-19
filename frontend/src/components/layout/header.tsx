@@ -19,9 +19,7 @@ export function Header() {
 
       {/* Right - Actions */}
       <div className="hidden md:block text-right sm:text-right  text-sm leading-tight max-w-xs break-words">
-        <p className="font-medium text-foreground">
-          📞 +91 77808 80146, +91 60053 36894
-        </p>
+        <p className="font-medium text-foreground">📞 +91 77808 80146</p>
         <p className="text-muted-foreground">
           Near New Sectreaite Road, opposite to CRPF camp, Shaheed Gunj,
           Srinagar, 190001
