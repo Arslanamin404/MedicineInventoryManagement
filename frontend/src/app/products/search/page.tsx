@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProductSearchPage() {
   const [query, setQuery] = useState("");
-  const [searchBy, setSearchBy] = useState<"code" | "name" | "generic">("code");
+  const [searchBy, setSearchBy] = useState<"code" | "name" | "generic">("name");
   const [results, setResults] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
 
