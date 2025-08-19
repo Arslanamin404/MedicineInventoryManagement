@@ -53,5 +53,9 @@ productRouter.get("/stats/value", (req: Request, res: Response, next: NextFuncti
 productRouter.get("/stats/out-of-stock", (req: Request, res: Response, next: NextFunction) => {
     ProductController.getOutOfStockCount(req, res, next)
 })
+// get expired products count
+productRouter.get("/stats/expired-count", (req: Request, res: Response, next: NextFunction) => {
+    ProductController.getExpiredCount(req, res, next)
+})
 
 export default productRouter;

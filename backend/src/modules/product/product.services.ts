@@ -125,4 +125,14 @@ export class ProductServices {
             }
         })
     }
+
+    static async getExpiredCount() {
+        return await prisma.product.count({
+            where: {
+                expiry_date: {
+                    lt: new Date()
+                }
+            }
+        })
+    }
 }

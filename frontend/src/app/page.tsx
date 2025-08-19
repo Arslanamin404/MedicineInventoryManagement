@@ -11,6 +11,7 @@ export default function HomePage() {
   const router = useRouter();
   const [productsCount, setProductsCount] = useState<number>(0);
   const [stockValue, setStockValue] = useState<number>(0);
+  const [expiredCount, setExpiredCount] = useState<number>(0);
   const [outOfStockCount, setOutOfStockCount] = useState<number>(0);
 
   const fetchProductCount = async () => {
@@ -61,11 +62,28 @@ export default function HomePage() {
     }
   };
 
+  const fetchExpiredProductsCount = async () => {
+    try {
+      const res = await api.get("/product/stats/expired-count");
+      setExpiredCount(res.data.data.count ?? 0);
+      // console.log(res.data.data.count);
+    } catch (error: any) {
+      console.log(error);
+      toast.error("Error fetching expired products count", {
+        description:
+          error.response?.data?.error?.message ||
+          "An unexpected error occurred.",
+        duration: 5000,
+      });
+    }
+  };
+
   useEffect(() => {
     Promise.all([
       fetchProductCount(),
       fetchStockValue(),
       fetchOutOfStockCount(),
+      fetchExpiredProductsCount(),
     ]);
   }, []);
 
@@ -84,7 +102,7 @@ export default function HomePage() {
     },
     {
       title: "Expired Products",
-      value: 5,
+      value: expiredCount,
       color: "bg-red-50",
       text: "text-red-700",
     },

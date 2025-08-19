@@ -103,4 +103,13 @@ export class ProductController {
         }
     }
 
+    static async getExpiredCount(req: Request, res: Response, next: NextFunction) {
+        try {
+            const count = await ProductServices.getExpiredCount()
+            return ApiResponse(res, 200, true, "Expired products count fetched successfully", { count })
+        } catch (error) {
+            next(error)
+        }
+    }
+
 }
