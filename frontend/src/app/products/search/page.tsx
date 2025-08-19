@@ -34,9 +34,7 @@ export default function ProductSearchPage() {
 
     try {
       let res;
-      if (searchBy === "code") {
-        res = await api.get(`/product/code/${query}`);
-      } else if (searchBy === "name") {
+      if (searchBy === "name") {
         res = await api.get(`/product/name/${query}`);
       } else {
         res = await api.get(`/product/generic/${query}`);
@@ -69,7 +67,7 @@ export default function ProductSearchPage() {
             🔍 Search Medicine
           </CardTitle>
           <p className="text-sm text-gray-500">
-            Start typing to find medicines by code, name, or generic name
+            Start typing to find medicines by product name, or generic name
           </p>
         </CardHeader>
 
@@ -84,7 +82,6 @@ export default function ProductSearchPage() {
                 <SelectValue placeholder="Search by" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="code">Code</SelectItem>
                 <SelectItem value="name">Name</SelectItem>
                 <SelectItem value="generic">Generic Name</SelectItem>
               </SelectContent>
@@ -108,7 +105,7 @@ export default function ProductSearchPage() {
 
             {!loading && results.length === 0 && query && (
               <p className="text-gray-500 text-sm text-center">
-                ❌ No product found for{" "}
+                ❌ No product found for
                 <span className="font-medium text-gray-700">{query}</span>
               </p>
             )}
@@ -117,7 +114,6 @@ export default function ProductSearchPage() {
               <table className="w-full text-sm border border-gray-200 rounded-lg">
                 <thead className="bg-gray-100">
                   <tr>
-                    <th className="px-4 py-2 text-left">Code</th>
                     <th className="px-4 py-2 text-left">Product Name</th>
                     <th className="px-4 py-2 text-left">Generic Name</th>
                     <th className="px-4 py-2 text-left">Category</th>
@@ -130,6 +126,7 @@ export default function ProductSearchPage() {
                 <tbody className="divide-y divide-gray-200">
                   {results.map((product) => (
                     <tr key={product.id} className="odd:bg-gray-50">
+                      <td className="px-4 py-2">{product.product_name}</td>
                       <td className="px-4 py-2">{product.generic_name}</td>
                       <td className="px-4 py-2">{product.category}</td>
                       <td className="px-4 py-2">{product.quantity}</td>
